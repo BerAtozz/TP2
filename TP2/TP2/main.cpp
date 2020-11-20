@@ -1,8 +1,7 @@
 #include <iostream>
 
-int main()
+int main (int argc , char const *argv[])
 {
-    std::cout << "Hello World!\n";
-    std::cout<< "coucou bande nouile"sdsdsd
-
+    
+    return 0;
 }

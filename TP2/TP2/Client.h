@@ -1,14 +1,15 @@
 #pragma once
 #ifndef CLIENT_H
 #define CLIENT_H
-
+#include "Product.h"
 
 #include <string>
 class Client
 {
 public:
-	Client();
+	Client(std::string name, std::string firstname, std::vector <Product> panier, int id);
   void ClearPanier();
+  void AddProductPanier(Product product);
   void ChangeQuantityPanier(Product product, int quantity);
   void DeleteProductPanier(Product product);
 private:
