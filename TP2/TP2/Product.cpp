@@ -1,7 +1,7 @@
 #include "Product.h"
 #include <string>
 
-Product(std::string title, std::string descrption, int quantity, double price);
+Product::Product(std::string title, std::string descrption, int quantity, double price);
 {
   m_title = title;
   m_descrption = descrption;
@@ -9,27 +9,27 @@ Product(std::string title, std::string descrption, int quantity, double price);
   m_price = price;
 }
 
-std::string getTitle();
+std::string Product::getTitle();
 {
   return m_title;
 }
 
-std::string getDescription();
+std::string Product::getDescription();
 {
   return m_descrption;
 }
 
-int getQuantity();
+int Product::getQuantity();
 {
   return m_quantity;
 }
 
-double getPrice();
+double Product::getPrice();
 {
   return m_price;
 }
 
-void ChangeQuantity(int quantity);
+void Product::ChangeQuantity(int quantity);
 {
   m_quantity = quantity;
 }

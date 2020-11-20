@@ -8,6 +8,9 @@ class Client
 {
 public:
 	Client();
+  void ClearPanier();
+  void ChangeQuantityPanier(Product product, int quantity);
+  void DeleteProductPanier(Product product);
 private:
 	std::string m_name;
 	std::string m_firstname;
