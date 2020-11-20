@@ -15,7 +15,7 @@ public:
 	void DisplayProduct(std::string name);
 	void UpdateQuantity(std::string name, int quantity);
 	void AddClient
-
+a
 private:
 	std::vector <Product> m_products;
 	std::vector <Client> m_clients;
