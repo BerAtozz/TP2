@@ -33,3 +33,9 @@ void Product::ChangeQuantity(int quantity)
 {
   m_quantity = quantity;
 }
+
+std::ostream& operator<<(std::ostream& out, Product& p)
+{
+	out << p.m_title;
+	return out;
+}

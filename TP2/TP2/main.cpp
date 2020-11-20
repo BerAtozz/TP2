@@ -1,8 +1,8 @@
 #include <iostream>
-
+#include "Magasin.h"
 int main()
 {
     std::cout << "Hello World!\n";
-    std::cout<< "coucou bande nouile"sdsdsd
+    Magasin m();
 
 }

@@ -2,7 +2,7 @@
 #ifndef PRODUCT_H
 #define PRODUCT_H
 #include <string>
-
+#include <iostream>
 class Product
 {
 public:
@@ -12,6 +12,7 @@ public:
   int getQuantity();
   double getPrice();
   void ChangeQuantity(int quantity);
+  friend std::ostream& operator<<(std::ostream& out, Product& p);
 private:
   std::string m_title;
   std::string m_descrption;
