@@ -1,5 +1,6 @@
 #include "Client.h"
-
+#include "Product.h"
+#include <vector>
 
 Client::Client(std::string name, std::string firstname, std::vector <Product> panier, int id)
 {
@@ -16,7 +17,7 @@ void Client::AddProductPanier(Product product)
 
 void Client::ClearPanier()
 {
-  m_panier::clear; //clear suprimme les elements du panier
+  m_panier.clear(); //clear suprimme les elements du panier
 }
 
 void Client::ChangeQuantityPanier(Product product, int quantity)
