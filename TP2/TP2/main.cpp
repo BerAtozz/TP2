@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Magasin.h"
 
 int main (int argc , char const *argv[])
 {
