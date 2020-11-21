@@ -1,7 +1,7 @@
 #include "Product.h"
 #include <string>
 
-Product::Product(std::string title, std::string descrption, int quantity, double price)
+Product::Product(std::string title, std::string descrption, float price, int quantity)
 {
   m_title = title;
   m_descrption = descrption;

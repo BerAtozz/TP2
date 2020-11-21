@@ -2,7 +2,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include "Product.h"
-
+#include <vector>
 #include <string>
 class Client
 {

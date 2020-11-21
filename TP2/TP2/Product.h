@@ -6,7 +6,7 @@
 class Product
 {
 public:
-  Product(std::string title, std::string descrption, int quantity, double price);
+  Product(std::string title, std::string descrption, float price, int quantity);
   std::string getTitle();
   std::string getDescription();
   int getQuantity();
@@ -17,7 +17,7 @@ private:
   std::string m_title;
   std::string m_descrption;
   int m_quantity;
-  double m_price;
+  float m_price;
 };
 
 #endif

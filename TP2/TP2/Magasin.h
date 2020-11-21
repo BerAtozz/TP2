@@ -9,10 +9,10 @@
 class Magasin
 {
 public:
-	Magasin();
-	void AddToMagasin(Product product);
+	Magasin(std::string nom);
+	void AddToMagasin(std::string nom,std::string description, float prix, int quantity);
 	void DisplayAllProducts();
-	void DisplayProduct(std::string name);
+	/*void DisplayProduct(std::string name);
 	void UpdateQuantity(std::string name, int quantity);
 	void AddClient(Client client);
 	void DisplayAllClients();
@@ -23,9 +23,10 @@ public:
 	void ValidateOrder(Client client);
 	void UpdateOrderStatus(Order order, std::string status);
 	void DisplayAllOrders();
-	void DisplayAllOrdersClient(Client client);
+	void DisplayAllOrdersClient(Client client);*/
 
 private:
+	std::string m_nom;
 	std::vector <Product> m_products;
 	std::vector <Client> m_clients;
 	std::vector <Order> m_orders;
