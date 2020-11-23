@@ -14,7 +14,6 @@ void Magasin::AddToMagasin(std::string nom, std::string description, float prix,
 
 void Magasin::DisplayAllProducts()
 {
-	//test1
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 	std::cout << "| Products                                                           |" << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
