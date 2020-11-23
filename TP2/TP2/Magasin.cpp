@@ -26,7 +26,7 @@ void Magasin::DisplayAllProducts()
 		std::cout << std::left << std::setw(26) << it->getDescription() << " ";
 		std::cout << std::left << std::setw(16) << it->getQuantity() << " ";
 		std::cout << std::setw(5) << it->getPrice();
-		std::cout << "|" << std::endl;		
+		std::cout << "|" << std::endl;
 	}
 
 }
