@@ -17,7 +17,7 @@ void Magasin::DisplayAllProducts()
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 	std::cout << "| Products                                                           |" << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
-	std::cout << "|Name             Description            Quantity             Price |" << std::endl;
+	std::cout << "| Name             Description            Quantity             Price |" << std::endl;
 	std::string str;
 	for (std::vector<Product>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
 		//std::cout << std::fixed << std::setprecision(2) << std::setfill(' ');
