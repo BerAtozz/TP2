@@ -11,9 +11,10 @@ class Magasin
 public:
 	Magasin(std::string nom);
 	void AddToMagasin(std::string nom,std::string description, float prix, int quantity);
+	void DisplayFrame();
 	void DisplayAllProducts();
-	/*void DisplayProduct(std::string name);
-	void UpdateQuantity(std::string name, int quantity);
+	void DisplayProduct(std::string name);
+	/*void UpdateQuantity(std::string name, int quantity);
 	void AddClient(Client client);
 	void DisplayAllClients();
 	void DisplayOneClient(int id);
