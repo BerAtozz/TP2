@@ -17,7 +17,7 @@ void Client::AddProductPanier(std::vector<Product*> m_products, std::string name
   {
     if (nameProduct == (*it)->getTitle())
     {
-      m_panier.push_back(it);
+      m_panier.push_back(*it);
       (*it)->ChangeQuantity((*it)->getQuantity()-1);
     }
 
