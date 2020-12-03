@@ -9,7 +9,7 @@ class Client
 public:
 	Client(std::string name, std::string firstname, std::vector <Product*> panier, int id);
   void ClearPanier();
-  void AddProductPanier(std::vector<Product*> productproduct);
+  void AddProductPanier(std::vector<Product*> m_products,std::string nameProduct);
   void ChangeQuantityPanier(Product product, int quantity);
   void DeleteProductPanier(Product product);
 private:
