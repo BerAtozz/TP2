@@ -35,9 +35,9 @@ void Magasin::DisplayAllProducts()
 		std::cout << std::left << std::setw(26) << (*it)->getDescription() << " ";
 		std::cout << std::left << std::setw(16) << (*it)->getQuantity() << " ";
 		std::cout << std::setw(5) << (*it)->getPrice();
-		std::cout << "|" << std::endl;
+		std::cout << "|" << std::endl;		
 	}
-
+	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
 void Magasin::DisplayProduct(std::string name)
@@ -52,6 +52,16 @@ void Magasin::DisplayProduct(std::string name)
 			std::cout << std::left << std::setw(16) << (*it)->getQuantity() << " ";
 			std::cout << std::setw(5) << (*it)->getPrice();
 			std::cout << "|" << std::endl;
+			std::cout << "----------------------------------------------------------------------" << std::endl;
+		}
+	}
+}
+
+void Magasin::UpdateQuantity(std::string name, int quantity)
+{
+	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
+		if ((*it)->getTitle() == name) {
+			(*it)->ChangeQuantity(quantity);
 		}
 	}
 }

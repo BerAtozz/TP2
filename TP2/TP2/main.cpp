@@ -11,9 +11,12 @@ int main (int argc , char const *argv[])
     magasin1.AddToMagasin("PS5", "Sony Play Station 5", 400.00, 12);
     magasin1.AddToMagasin("gamecube", "vintage console jeu", 20.00, 5);
     magasin1.AddToMagasin("JBL", "Enceinte", 99.99, 20);
-    magasin1.DisplayAllProducts();
-    magasin1.DisplayProduct("PS5");
 
+    magasin1.DisplayAllProducts();
+
+    magasin1.UpdateQuantity("PS5", 17);
+
+    magasin1.DisplayProduct("PS5");
 
     return 0;
 }

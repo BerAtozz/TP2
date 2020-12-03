@@ -15,8 +15,8 @@ public:
 	void DisplayFrame();
 	void DisplayAllProducts();
 	void DisplayProduct(std::string name);
-	/*void UpdateQuantity(std::string name, int quantity);
-	void AddClient(Client client);
+	void UpdateQuantity(std::string name, int quantity);
+	/*void AddClient(Client client);
 	void DisplayAllClients();
 	void DisplayOneClient(int id);
 	void AddProductPanier(Client client, Product product);
