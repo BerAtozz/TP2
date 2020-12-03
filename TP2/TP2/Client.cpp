@@ -2,7 +2,7 @@
 #include "Product.h"
 #include <vector>
 
-Client::Client(std::string name, std::string firstname, std::vector <Product> panier, int id)
+Client::Client(std::string name, std::string firstname, std::vector <Product*> panier, int id)
 {
   m_name = name;
   m_firstname = firstname;
@@ -10,7 +10,7 @@ Client::Client(std::string name, std::string firstname, std::vector <Product> pa
   m_id = id;
 }
 
-void Client::AddProductPanier(Product product)
+void Client::AddProductPanier(Product* product)
 {
   m_panier.push_back (product); //push back d'un product dans panier
 }

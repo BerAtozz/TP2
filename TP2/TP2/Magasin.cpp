@@ -8,8 +8,8 @@ Magasin::Magasin(std::string nom)
 
 void Magasin::AddToMagasin(std::string nom, std::string description, float prix, int quantity)
 {
-	Product p(nom, description, prix, quantity);
-	m_products.push_back(&p);
+	Product* p = new Product(nom, description, prix, quantity);
+	m_products.push_back(p);
 }
 
 void Magasin::DisplayAllProducts()
