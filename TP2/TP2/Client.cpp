@@ -10,9 +10,9 @@ Client::Client(std::string name, std::string firstname, std::vector <Product*> p
   m_id = id;
 }
 
-void Client::AddProductPanier(std::vector<Product*> product)
+void Client::AddProductPanier(std::vector<Product*> m_products)
 {
-	for (std::vector<Product*>::iterator it = product.begin(); it != product.end(); ++it) {
+	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
 	}
   //m_panier.push_back (product); //push back d'un product dans panier
 }
