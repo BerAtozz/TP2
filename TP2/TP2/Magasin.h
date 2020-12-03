@@ -11,6 +11,7 @@ class Magasin
 public:
 	Magasin(std::string nom);
 	void AddToMagasin(std::string nom,std::string description, float prix, int quantity);
+	std::vector <Product*> getProductList();
 	void DisplayFrame();
 	void DisplayAllProducts();
 	void DisplayProduct(std::string name);

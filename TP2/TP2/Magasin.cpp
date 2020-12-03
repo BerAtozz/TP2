@@ -12,6 +12,11 @@ void Magasin::AddToMagasin(std::string nom, std::string description, float prix,
 	m_products.push_back(p);
 }
 
+std::vector<Product*> Magasin::getProductList()
+{
+	return m_products;
+}
+
 void Magasin::DisplayFrame()
 {
 	std::cout << "----------------------------------------------------------------------" << std::endl;
