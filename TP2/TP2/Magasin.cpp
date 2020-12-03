@@ -65,3 +65,50 @@ void Magasin::UpdateQuantity(std::string name, int quantity)
 		}
 	}
 }
+
+void Magasin::AddProductPanier(std::string nomProduit, std::string nomClient, std::string prenomClient)
+{
+	Client* client;
+	client = new Client ();
+
+	bool clientTrouve = false;
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it)
+	{
+		if ((*it)->getFirstName() == prenomClient && (*it)->getName() == nomClient) {
+			client = *it;
+			clientTrouve = true;
+		}
+	}
+	if (clientTrouve) {
+		for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it)
+		{
+			if (nomProduit == (*it)->getTitle())
+			{
+				client->AddProductPanier(*it);
+			}
+		}
+	}
+}
+
+void Magasin::AddClient(std::string nom, std::string prenom, int id) //Vérifier les doublons !!!! + client pas vide
+{
+	Client* c = new Client(nom, prenom, id);
+	m_clients.push_back(c);
+}
+
+void Magasin::DisplayAllClients()
+{
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "| Client                                                             |" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "| UID              Identity                                          |" << std::endl;
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it)
+	{		
+		std::cout << "|";
+		std::cout << std::left << std::setw(15) << (*it)->getId() << " ";
+		std::cout << std::left << std::setw(0) << (*it)->getName() << " ";
+		std::cout << std::left << std::setw(42) << (*it)->getFirstName() << " ";
+		std::cout << "|" << std::endl;
+	}
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+}
