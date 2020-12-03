@@ -27,9 +27,9 @@ public:
 
 private:
 	std::string m_nom;
-	std::vector <Product> m_products;
-	std::vector <Client> m_clients;
-	std::vector <Order> m_orders;
+	std::vector <Product*> m_products;
+	std::vector <Client*> m_clients;
+	std::vector <Order*> m_orders;
 
 };
 #endif // !MAGASIN_H
