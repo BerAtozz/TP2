@@ -7,11 +7,15 @@
 class Client
 {
 public:
-	Client(std::string name, std::string firstname, std::vector <Product*> panier, int id);
-  void ClearPanier();
-  void AddProductPanier(std::vector<Product*> m_products,std::string nameProduct);
-  void ChangeQuantityPanier(Product product, int quantity);
-  void DeleteProductPanier(Product product);
+	Client(std::string name, std::string firstname, int id);
+	void ClearPanier();
+	void AddProductPanier(std::vector<Product*> m_products, std::string nameProduct);
+	void ChangeQuantityPanier(Product product, int quantity);
+	void DeleteProductPanier(Product product);
+	std::string getName();
+	std::string getFirstName();
+	std::string getPanier();
+	//bool operator<< (std::ostream& out, Client& c);
 private:
 	std::string m_name;
 	std::string m_firstname;

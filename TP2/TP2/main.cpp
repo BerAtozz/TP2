@@ -3,7 +3,7 @@
 
 int main (int argc , char const *argv[])
 {
-    //creation de 3 magasin vide
+   
     Magasin magasin1("m1");
     magasin1.AddToMagasin("PS4", "Sony Play Station 4", 399.99, 10);
     magasin1.AddToMagasin("Switch", "Nintendo Switch", 299.99, 5);
@@ -17,6 +17,10 @@ int main (int argc , char const *argv[])
     magasin1.UpdateQuantity("PS5", 17);
 
     magasin1.DisplayProduct("PS5");
+    
 
+    Client c1("Valentin", "Berthoz", 1);
+    c1.AddProductPanier(magasin1.getProductList(),"PS5");
+    <<c1;
     return 0;
 }
