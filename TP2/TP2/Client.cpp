@@ -1,6 +1,7 @@
 #include "Client.h"
 #include "Product.h"
 #include "Magasin.h"
+#include <ostream>
 #include <vector>
 #include <string>
 
@@ -83,11 +84,11 @@ std::string Client::getPanier()
     {
         str += "Article : " + (*it)->getTitle() + " Quantitee : " + std::to_string((*it)->getQuantity());
     }
-    return str;
+    return str;       
 }
 
-std::ostream& operator<<(std::ostream& out, Client& c)
+std::ostream& operator<<(std::ostream& os, const Client& ct)
 {
-    out << c.getName() << c.getFirstName() << c.getPanier();
-    return out;
+    os << ct.m_name << ' ' << ct.m_firstname ;
+    return os;
 }

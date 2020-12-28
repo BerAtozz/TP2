@@ -2,6 +2,7 @@
 #ifndef CLIENT_H
 #define CLIENT_H
 #include "Product.h"
+#include <ostream>
 #include <vector>
 #include <string>
 class Client
@@ -18,7 +19,8 @@ public:
 	std::string getFirstName();
 	std::string getPanier();
 	
-	//bool operator<< (std::ostream& out, Client& c);
+	friend std::ostream& operator<<(std::ostream& os, const Client& ct);
+
 private:
 	std::string m_name;
 	std::string m_firstname;

@@ -19,10 +19,11 @@ int main (int argc , char const *argv[])
     magasin1.DisplayProduct("PS5");
     
 
-    //Client c1("Valentin", "Berthoz");
+    Client c1("Valentin", "Berthoz");
+    std::cout << c1;
     //c1.AddProductPanier(magasin1.getProductList(),"PS5");
 
-    magasin1.AddClient("Valentin", "Berthoz");
+    /*magasin1.AddClient("Valentin", "Berthoz");
     magasin1.AddClient("Hugo", "Senechal");
     magasin1.AddClient("Dom", "Ginhac");
     magasin1.AddClient("Bill", "Gates");
@@ -30,7 +31,7 @@ int main (int argc , char const *argv[])
     magasin1.DisplayAllClients();
 
     magasin1.DisplayClient(2);
-    magasin1.DisplayClient("Bill","Gates");
+    magasin1.DisplayClient("Bill","Gates");*/
     
     return 0;
 }
