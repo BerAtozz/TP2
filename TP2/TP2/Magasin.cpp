@@ -65,3 +65,107 @@ void Magasin::UpdateQuantity(std::string name, int quantity)
 		}
 	}
 }
+
+void Magasin::AddClient(std::string prenom, std::string nom)
+{
+	Client* c = new Client(nom, prenom);
+	c->setID(m_clients.size() + 1);
+	m_clients.push_back(c);
+	
+}
+
+void Magasin::DisplayClientFrame()
+{
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "| Clients                                                            |" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "| Uid             Identity                                           |" << std::endl;
+}
+
+void Magasin::DisplayAllClients()
+{
+	std::string str;
+	DisplayClientFrame();
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		std::cout << "|";
+		std::cout << std::left << std::setw(16) << (*it)->getID() << " ";
+		std::cout << (*it)->getFirstName() << " " << (*it)->getName()<<std::left << std::setw(34) << " ";
+		std::cout << "|" << std::endl;		
+	}
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+}
+
+void Magasin::DisplayClient(int id)
+{
+	std::string str;
+	DisplayClientFrame();
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getID() == id) {
+			std::cout << "|";
+			std::cout << std::left << std::setw(16) << (*it)->getID() << " ";
+			std::cout << (*it)->getFirstName() << " " << (*it)->getName() << std::left << std::setw(34) << " ";
+			std::cout << "|" << std::endl;
+		}
+	}
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+}
+
+void Magasin::DisplayClient(std::string prenom, std::string nom)
+{
+	std::string str;
+	DisplayClientFrame();
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+			std::cout << "|";
+			std::cout << std::left << std::setw(16) << (*it)->getID() << " ";
+			std::cout << (*it)->getFirstName() << " " << (*it)->getName() << std::left << std::setw(34) << " ";
+			std::cout << "|" << std::endl;
+		}
+	}
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+}
+
+void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string product)
+{
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+			(*it)->AddProductPanier(m_products,product);
+		}
+	}
+}
+
+void Magasin::AddProductPanier(int id, std::string product)
+{
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getID() == id) {
+			(*it)->AddProductPanier(m_products, product);
+		}
+	}
+}
+
+void Magasin::DeleteProductPanier(std::string nom, std::string prenom, std::string product)
+{
+	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
+		if ((*pit)->getTitle() == product) {
+			for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+				if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+					(*it)->DeleteProductPanier(*pit);
+				}
+			}
+		}
+	}
+	
+}
+
+void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity)
+{
+	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
+		if ((*pit)->getTitle() == product) {
+			for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+				if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+					(*it)->ChangeQuantityPanier(*pit,quantity);
+				}
+			}
+		}
+	}
+}

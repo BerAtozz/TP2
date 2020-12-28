@@ -16,13 +16,16 @@ public:
 	void DisplayAllProducts();
 	void DisplayProduct(std::string name);
 	void UpdateQuantity(std::string name, int quantity);
-	/*void AddClient(Client client);
+	void AddClient(std::string prenom, std::string nom);
+	void DisplayClientFrame();
 	void DisplayAllClients();
-	void DisplayOneClient(int id);
-	void AddProductPanier(Client client, Product product);
-	void DeleteProductPanier(Client client, Product product);
-	void ChangeQuantityPanier(Client client, Product product, int quantity);
-	void ValidateOrder(Client client);
+	void DisplayClient(int id);
+	void DisplayClient(std::string prenom, std::string nom);
+	void AddProductPanier(std::string prenom, std::string nom, std::string product);
+	void AddProductPanier(int id, std::string product);
+	void DeleteProductPanier(std::string nom, std::string prenom, std::string product);
+	void ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity);
+	/*void ValidateOrder(Client client);
 	void UpdateOrderStatus(Order order, std::string status);
 	void DisplayAllOrders();
 	void DisplayAllOrdersClient(Client client);*/

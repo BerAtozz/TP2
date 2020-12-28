@@ -4,12 +4,12 @@
 #include <vector>
 #include <string>
 
-Client::Client(std::string name, std::string firstname, int id)
+Client::Client(std::string name, std::string firstname)
 {
   m_name = name;
   m_firstname = firstname;
   m_panier;
-  m_id = id;
+  m_id;
 }
 
 void Client::AddProductPanier(std::vector<Product*> m_products, std::string nameProduct)
@@ -35,25 +35,35 @@ void Client::ClearPanier()
   m_panier.clear(); //clear suprimme les elements du panier
 }
 
-void Client::ChangeQuantityPanier(Product product, int quantity)
+void Client::ChangeQuantityPanier(Product* product, int quantity)
 {
     for (std::vector<Product*>::iterator it = m_panier.begin(); it != m_panier.end(); ++it)
     {
-        if (product.getTitle() == (*it)->getTitle()) {
+        if (product->getTitle() == (*it)->getTitle()) {
             (*it)->ChangeQuantity(quantity);
         }
     }
   
 }
 
-void Client::DeleteProductPanier(Product product)
+void Client::DeleteProductPanier(Product* product)
 {
     for (std::vector<Product*>::iterator it = m_panier.begin(); it != m_panier.end(); ++it)
     {
-        if (product.getTitle() == (*it)->getTitle()) {
+        if (product->getTitle() == (*it)->getTitle()) {
             m_panier.erase(it);
         }
     }
+}
+
+void Client::setID(int id)
+{
+    m_id = id;
+}
+
+int Client::getID()
+{
+    return m_id;
 }
 
 std::string Client::getName()
