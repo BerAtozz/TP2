@@ -25,8 +25,8 @@ public:
 	void AddProductPanier(int id, std::string product);
 	void DeleteProductPanier(std::string nom, std::string prenom, std::string product);
 	void ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity);
-	/*void ValidateOrder(Client client);
-	void UpdateOrderStatus(Order order, std::string status);
+	void ValidateOrder(std::string prenom, std::string nom);
+	/*void UpdateOrderStatus(Order order, std::string status);
 	void DisplayAllOrders();
 	void DisplayAllOrdersClient(Client client);*/
 

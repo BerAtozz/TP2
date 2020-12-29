@@ -169,3 +169,8 @@ void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::str
 		}
 	}
 }
+
+void Magasin::ValidateOrder(std::string prenom, std::string nom)
+{
+	
+}
