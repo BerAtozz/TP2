@@ -83,6 +83,7 @@ void Magasin::DisplayClientFrame()
 	std::cout << "| Uid             Identity                                           |" << std::endl;
 }
 
+
 void Magasin::DisplayAllClients()
 {
 	std::string str;
@@ -187,14 +188,52 @@ void Magasin::ValidateOrder(std::string prenom, std::string nom)
 	}
 }
 
-void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, bool status)
+void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, std::string status)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
 			for (std::vector<Order*>::iterator oit = m_orders.begin(); oit != m_orders.end(); ++oit) {
 				if ((*oit)->getClient() == (*it)) {
-					std::cout << "koukou" << std::endl;
+					(*oit)->setStatus(status);
 				}
+			}
+		}
+	}
+}
+
+void Magasin::DisplayAllOrders()
+{
+	for (std::vector<Order*>::iterator it = m_orders.begin(); it != m_orders.end(); ++it) {
+		std::cout << "----------------------------------------------------------------------" << std::endl;
+		std::cout << "| Statut de la commande : ";
+		std::cout << std::left << std::setw(42) << (*it)->getStatus() << " ";
+		std::cout << "|" << std::endl;
+		DisplayFrame();
+		std::vector<Product*> pan = (*it)->getBuyedProducts();
+		for (std::vector<Product*>::iterator oit = pan.begin(); oit != pan.end(); ++oit) {
+			std::cout << "|";
+			std::cout << std::left << std::setw(17) << (*oit)->getTitle() << " ";
+			std::cout << std::left << std::setw(26) << (*oit)->getDescription() << " ";
+			std::cout << std::left << std::setw(16) << (*oit)->getQuantity() << " ";
+			std::cout << std::setw(5) << (*oit)->getPrice();
+			std::cout << "|" << std::endl;
+		}
+		std::cout << "----------------------------------------------------------------------" << std::endl;
+	}
+}
+
+void Magasin::DisplayAllOrdersClient(std::string prenom, std::string nom)
+{
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+			for (std::vector<Order*>::iterator oit = m_orders.begin(); oit != m_orders.end(); ++oit) {
+				std::cout << "----------------------------------------------------------------------" << std::endl;
+				std::cout << "| Statut de la commande : ";
+				std::cout << std::left << std::setw(42) << (*oit)->getStatus() << " ";
+				std::cout << "|" << std::endl;
+				DisplayFrame();
+
+				//A finir 
 			}
 		}
 	}

@@ -9,11 +9,12 @@ public:
 	Order(Client* client, std::vector <Product*> panier);
 	std::vector <Product*> getBuyedProducts();
 	Client* getClient();
-
+	void setStatus(std::string status);
+	std::string getStatus();
 private:
 	Client* m_client;
 	std::vector <Product*> m_BuyedProducts;
-	bool statut; //Si false, commande en attente, si true, commande validée
+	std::string statut; 
 
 };
 

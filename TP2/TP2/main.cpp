@@ -42,7 +42,8 @@ int main (int argc , char const *argv[])
 
     //magasin1.ChangeQuantityPanier("Valentin", "Berthoz", "PS5", 3);
 
-    magasin1.UpdateOrderStatus("Valentin", "Berthoz", true);
+    magasin1.UpdateOrderStatus("Valentin", "Berthoz", "En preparation");
+    magasin1.DisplayAllOrders();
     
     
     return 0;
