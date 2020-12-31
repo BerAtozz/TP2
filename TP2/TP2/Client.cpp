@@ -5,6 +5,10 @@
 #include <vector>
 #include <string>
 
+Client::Client()
+{
+}
+
 Client::Client(std::string name, std::string firstname)
 {
   m_name = name;
@@ -13,20 +17,21 @@ Client::Client(std::string name, std::string firstname)
   m_id;
 }
 
-void Client::AddProductPanier(std::vector<Product*> m_products, std::string nameProduct)
+void Client::AddProductPanier(std::vector<Product*> m_products, std::string nameProduct, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it)
     {
         if (nameProduct == (*it)->getTitle())
-        {
-          m_panier.push_back(*it);
-          (*it)->ChangeQuantity((*it)->getQuantity()-1);
+        { 
+            Product* p = new Product((*it)->getTitle(), (*it)->getDescription(), (*it)->getPrice(), quantity);             
+            m_panier.push_back(p);
+            //(*it)->ChangeQuantity((*it)->getQuantity()-1);
         }
 
-        else
+       /* else
         {
           std::cout<<"Le produit demandé n'est pas en stock"<<std::endl;
-        }
+        }*/
 	}
   //m_panier.push_back (product); //push back d'un product dans panier
 }
@@ -85,6 +90,11 @@ std::string Client::getPanier()
         str += "Article : " + (*it)->getTitle() + " Quantitee : " + std::to_string((*it)->getQuantity());
     }
     return str;       
+}
+
+std::vector<Product*> Client::getVectorPanier()
+{
+    return m_panier;
 }
 
 std::ostream& operator<<(std::ostream& os, const Client& ct)

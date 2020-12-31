@@ -14,24 +14,36 @@ int main (int argc , char const *argv[])
 
     magasin1.DisplayAllProducts();
 
-    magasin1.UpdateQuantity("PS5", 17);
+    //magasin1.UpdateQuantity("PS5", 17);
 
-    magasin1.DisplayProduct("PS5");
+    //magasin1.DisplayProduct("PS5");
     
 
-    Client c1("Valentin", "Berthoz");
-    std::cout << c1;
+    //Client c1("Valentin", "Berthoz");
+    //std::cout << c1;
     //c1.AddProductPanier(magasin1.getProductList(),"PS5");
 
-    /*magasin1.AddClient("Valentin", "Berthoz");
+    magasin1.AddClient("Valentin", "Berthoz");
     magasin1.AddClient("Hugo", "Senechal");
     magasin1.AddClient("Dom", "Ginhac");
     magasin1.AddClient("Bill", "Gates");
 
-    magasin1.DisplayAllClients();
+    //magasin1.DisplayAllClients();
 
-    magasin1.DisplayClient(2);
-    magasin1.DisplayClient("Bill","Gates");*/
+    //magasin1.DisplayClient(2);
+    //magasin1.DisplayClient("Bill","Gates");
+
+    magasin1.AddProductPanier("Valentin", "Berthoz", "PS5", 1);
+    magasin1.AddProductPanier("Valentin", "Berthoz", "JBL", 5);
+    magasin1.ValidateOrder("Valentin", "Berthoz");
+
+    magasin1.DisplayAllProducts();
+
+
+    //magasin1.ChangeQuantityPanier("Valentin", "Berthoz", "PS5", 3);
+
+    magasin1.UpdateOrderStatus("Valentin", "Berthoz", true);
+    
     
     return 0;
 }

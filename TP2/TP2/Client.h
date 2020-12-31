@@ -8,9 +8,10 @@
 class Client
 {
 public:
+	Client();
 	Client(std::string name, std::string firstname);
 	void ClearPanier();
-	void AddProductPanier(std::vector<Product*> m_products, std::string nameProduct);
+	void AddProductPanier(std::vector<Product*> m_products, std::string nameProduct, int quantity);
 	void ChangeQuantityPanier(Product* product, int quantity);
 	void DeleteProductPanier(Product* product);
 	void setID(int id);
@@ -18,6 +19,7 @@ public:
 	std::string getName();
 	std::string getFirstName();
 	std::string getPanier();
+	std::vector<Product*> getVectorPanier();
 	
 	friend std::ostream& operator<<(std::ostream& os, const Client& ct);
 

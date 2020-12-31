@@ -61,7 +61,8 @@ void Magasin::UpdateQuantity(std::string name, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
 		if ((*it)->getTitle() == name) {
-			(*it)->ChangeQuantity(quantity);
+			(*it)->ChangeQuantity(((*it)->getQuantity()-quantity));
+			
 		}
 	}
 }
@@ -125,20 +126,20 @@ void Magasin::DisplayClient(std::string prenom, std::string nom)
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
-void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string product)
+void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
-			(*it)->AddProductPanier(m_products,product);
+			(*it)->AddProductPanier(m_products,product, quantity);
 		}
 	}
 }
 
-void Magasin::AddProductPanier(int id, std::string product)
+void Magasin::AddProductPanier(int id, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getID() == id) {
-			(*it)->AddProductPanier(m_products, product);
+			(*it)->AddProductPanier(m_products, product, quantity);
 		}
 	}
 }
@@ -172,5 +173,29 @@ void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::str
 
 void Magasin::ValidateOrder(std::string prenom, std::string nom)
 {
-	
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {			
+			Order* o = new Order((*it), (*it)->getVectorPanier());
+			m_orders.push_back(o);
+			std::vector<Product*> pan = (*it)->getVectorPanier();
+			
+			for (std::vector<Product*>::iterator pit = pan.begin(); pit != pan.end(); ++pit) {
+				UpdateQuantity((*pit)->getTitle(), (*pit)->getQuantity());				
+			}
+			(*it)->ClearPanier();
+		}
+	}
+}
+
+void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, bool status)
+{
+	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
+			for (std::vector<Order*>::iterator oit = m_orders.begin(); oit != m_orders.end(); ++oit) {
+				if ((*oit)->getClient() == (*it)) {
+					std::cout << "koukou" << std::endl;
+				}
+			}
+		}
+	}
 }

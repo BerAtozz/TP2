@@ -21,13 +21,13 @@ public:
 	void DisplayAllClients();
 	void DisplayClient(int id);
 	void DisplayClient(std::string prenom, std::string nom);
-	void AddProductPanier(std::string prenom, std::string nom, std::string product);
-	void AddProductPanier(int id, std::string product);
+	void AddProductPanier(std::string prenom, std::string nom, std::string product, int quantity);
+	void AddProductPanier(int id, std::string product, int quantity);
 	void DeleteProductPanier(std::string nom, std::string prenom, std::string product);
 	void ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity);
 	void ValidateOrder(std::string prenom, std::string nom);
-	/*void UpdateOrderStatus(Order order, std::string status);
-	void DisplayAllOrders();
+	void UpdateOrderStatus(std::string firstname, std::string name, bool status);
+	/*void DisplayAllOrders();
 	void DisplayAllOrdersClient(Client client);*/
 
 private:
