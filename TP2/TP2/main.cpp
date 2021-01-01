@@ -5,15 +5,15 @@
 int main (int argc , char const *argv[])
 {
    
-    /*Magasin magasin1("m1");
-    magasin1.AddToMagasin("PS4", "Sony Play Station 4", 399.99, 10);
-    magasin1.AddToMagasin("Switch", "Nintendo Switch", 299.99, 5);
-    magasin1.AddToMagasin("RTX3080", "Carte graphique", 800.00, 15);
-    magasin1.AddToMagasin("PS5", "Sony Play Station 5", 400.00, 12);
-    magasin1.AddToMagasin("gamecube", "vintage console jeu", 20.00, 5);
-    magasin1.AddToMagasin("JBL", "Enceinte", 99.99, 20);
+    //Magasin magasin1("m1");
+    //magasin1.AddToMagasin("PS4", "Sony Play Station 4", 399.99, 10);
+    //magasin1.AddToMagasin("Switch", "Nintendo Switch", 299.99, 5);
+    //magasin1.AddToMagasin("RTX3080", "Carte graphique", 800.00, 15);
+    //magasin1.AddToMagasin("PS5", "Sony Play Station 5", 400.00, 12);
+    //magasin1.AddToMagasin("gamecube", "vintage console jeu", 20.00, 5);
+    //magasin1.AddToMagasin("JBL", "Enceinte", 99.99, 20);
 
-    magasin1.DisplayAllProducts();
+    //magasin1.DisplayAllProducts();
 
     //magasin1.UpdateQuantity("PS5", 17);
 
@@ -24,31 +24,33 @@ int main (int argc , char const *argv[])
     //std::cout << c1;
     //c1.AddProductPanier(magasin1.getProductList(),"PS5");
 
-    magasin1.AddClient("Valentin", "Berthoz");
-    magasin1.AddClient("Hugo", "Senechal");
-    magasin1.AddClient("Dom", "Ginhac");
-    magasin1.AddClient("Bill", "Gates");
+    //magasin1.AddClient("Valentin", "Berthoz");
+    //magasin1.AddClient("Hugo", "Senechal");
+    //magasin1.AddClient("Dom", "Ginhac");
+    //magasin1.AddClient("Bill", "Gates");
 
     //magasin1.DisplayAllClients();
 
     //magasin1.DisplayClient(2);
     //magasin1.DisplayClient("Bill","Gates");
 
-    magasin1.AddProductPanier("Valentin", "Berthoz", "PS5", 1);
-    magasin1.AddProductPanier("Valentin", "Berthoz", "JBL", 5);
-    magasin1.ValidateOrder("Valentin", "Berthoz");
+    //magasin1.AddProductPanier("Valentin", "Berthoz", "PS5", 1);
+    //magasin1.AddProductPanier("Valentin", "Berthoz", "JBL", 5);
+    //magasin1.ValidateOrder("Valentin", "Berthoz");
+    //magasin1.DisplayClient(1);
+    //magasin1.DeleteProductPanier(1, "PS5");
+    //magasin1.DisplayClient(1);
+    //magasin1.DisplayAllProducts();
 
-    magasin1.DisplayAllProducts();
-
-    magasin1.AddProductPanier("Valentin", "Berthoz", "gamecube", 1);
-    magasin1.ValidateOrder("Valentin", "Berthoz");
+    //magasin1.AddProductPanier("Valentin", "Berthoz", "gamecube", 1);
+    //magasin1.ValidateOrder("Valentin", "Berthoz");
 
 
     //magasin1.ChangeQuantityPanier("Valentin", "Berthoz", "PS5", 3);
 
-    magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
+    //magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
     
-    magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");*/
+    //magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");*/
 
     Display affichage("");
     affichage.Main();

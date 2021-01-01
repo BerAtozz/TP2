@@ -14,6 +14,12 @@ public :
 	void AfficherProduitsMagasin();
 	void AfficherUnProduitMagasin();
 	void ChangerQuantiteProduit();
+	void AjouterClientMagasin();
+	void AfficherTousLesClients();
+	void AfficherUnClient();
+	void AjouterProduitPanier();
+	void SupprimerProduitPanier();
+	void ChangerQuantiteProduitPanier();
 private :
 	std::string nom;
 	Magasin mShop;

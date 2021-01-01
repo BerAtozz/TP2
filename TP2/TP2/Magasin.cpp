@@ -123,6 +123,21 @@ void Magasin::DisplayClient(int id)
 			std::cout << std::left << std::setw(16) << (*it)->getID() << " ";
 			std::cout << (*it)->getFirstName() << " " << (*it)->getName() << std::left << std::setw(34) << " ";
 			std::cout << "|" << std::endl;
+			std::cout << "----------------------------------------------------------------------" << std::endl;
+			std::cout << "Panier" << std::endl;
+			std::cout << "----------------------------------------------------------------------" << std::endl;
+			std::cout << "| Name             Description            Quantity             Price |" << std::endl;
+
+			std::vector<Product*>pan = (*it)->getVectorPanier();
+			for (std::vector<Product*>::iterator oit = pan.begin(); oit != pan.end(); ++oit) {
+				std::cout << "|";
+				std::cout << std::left << std::setw(17) << (*oit)->getTitle() << " ";
+				std::cout << std::left << std::setw(26) << (*oit)->getDescription() << " ";
+				std::cout << std::left << std::setw(16) << (*oit)->getQuantity() << " ";
+				std::cout << std::setw(5) << (*oit)->getPrice();
+				std::cout << "|" << std::endl;
+			}
+			std::cout << "----------------------------------------------------------------------" << std::endl;
 		}
 	}
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -138,6 +153,22 @@ void Magasin::DisplayClient(std::string prenom, std::string nom)
 			std::cout << std::left << std::setw(16) << (*it)->getID() << " ";
 			std::cout << (*it)->getFirstName() << " " << (*it)->getName() << std::left << std::setw(34) << " ";
 			std::cout << "|" << std::endl;
+			std::cout << "|" << std::endl;
+			std::cout << "----------------------------------------------------------------------" << std::endl;
+			std::cout << "Panier" << std::endl;
+			std::cout << "----------------------------------------------------------------------" << std::endl;
+			std::cout << "| Name             Description            Quantity             Price |" << std::endl;
+
+			std::vector<Product*>pan = (*it)->getVectorPanier();
+			for (std::vector<Product*>::iterator oit = pan.begin(); oit != pan.end(); ++oit) {
+				std::cout << "|";
+				std::cout << std::left << std::setw(17) << (*oit)->getTitle() << " ";
+				std::cout << std::left << std::setw(26) << (*oit)->getDescription() << " ";
+				std::cout << std::left << std::setw(16) << (*oit)->getQuantity() << " ";
+				std::cout << std::setw(5) << (*oit)->getPrice();
+				std::cout << "|" << std::endl;
+			}
+			std::cout << "----------------------------------------------------------------------" << std::endl;
 		}
 	}
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -175,6 +206,19 @@ void Magasin::DeleteProductPanier(std::string nom, std::string prenom, std::stri
 	
 }
 
+void Magasin::DeleteProductPanier(int id, std::string product)
+{
+	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
+		if ((*pit)->getTitle() == product) {
+			for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+				if ((*it)->getID() == id) {
+					(*it)->DeleteProductPanier(*pit);
+				}
+			}
+		}
+	}
+}
+
 void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity)
 {
 	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
@@ -182,6 +226,19 @@ void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::str
 			for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 				if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
 					(*it)->ChangeQuantityPanier(*pit,quantity);
+				}
+			}
+		}
+	}
+}
+
+void Magasin::ChangeQuantityPanier(int id, std::string product, int quantity)
+{
+	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
+		if ((*pit)->getTitle() == product) {
+			for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
+				if ((*it)->getID() == id) {
+					(*it)->ChangeQuantityPanier(*pit, quantity);
 				}
 			}
 		}

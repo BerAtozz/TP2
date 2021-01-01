@@ -25,15 +25,8 @@ void Client::AddProductPanier(std::vector<Product*> m_products, std::string name
         { 
             Product* p = new Product((*it)->getTitle(), (*it)->getDescription(), (*it)->getPrice(), quantity);             
             m_panier.push_back(p);
-            //(*it)->ChangeQuantity((*it)->getQuantity()-1);
         }
-
-       /* else
-        {
-          std::cout<<"Le produit demandé n'est pas en stock"<<std::endl;
-        }*/
-	}
-  //m_panier.push_back (product); //push back d'un product dans panier
+	} 
 }
 
 void Client::ClearPanier()
@@ -48,16 +41,14 @@ void Client::ChangeQuantityPanier(Product* product, int quantity)
         if (product->getTitle() == (*it)->getTitle()) {
             (*it)->ChangeQuantity(quantity);
         }
-    }
-  
+    }  
 }
 
 void Client::DeleteProductPanier(Product* product)
-{
-    for (std::vector<Product*>::iterator it = m_panier.begin(); it != m_panier.end(); ++it)
-    {
-        if (product->getTitle() == (*it)->getTitle()) {
-            m_panier.erase(it);
+{  
+    for (int i = 0; i < m_panier.size(); i++) {
+        if (m_panier[i]->getTitle() == product->getTitle()) {
+            m_panier.erase(m_panier.begin() + i);
         }
     }
 }
