@@ -1,8 +1,9 @@
 #include "Order.h"
-Order::Order(Client* client, std::vector<Product*> panier)
+Order::Order(Client* client, std::vector<Product*> panier, int id)
 {
 	m_client = client;
 	m_BuyedProducts = panier;
+	ID = id;
 }
 
 std::vector<Product*> Order::getBuyedProducts()
@@ -23,6 +24,16 @@ void Order::setStatus(std::string status)
 std::string Order::getStatus()
 {
 	return statut;
+}
+
+void Order::setID(int id)
+{
+	ID = id;
+}
+
+int Order::getID()
+{
+	return ID;
 }
 
 

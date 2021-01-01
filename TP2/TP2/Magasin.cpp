@@ -176,7 +176,7 @@ void Magasin::ValidateOrder(std::string prenom, std::string nom)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {			
-			Order* o = new Order((*it), (*it)->getVectorPanier());
+			Order* o = new Order((*it), (*it)->getVectorPanier(), m_orders.size()+1);
 			m_orders.push_back(o);
 			std::vector<Product*> pan = (*it)->getVectorPanier();
 			
@@ -188,12 +188,12 @@ void Magasin::ValidateOrder(std::string prenom, std::string nom)
 	}
 }
 
-void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, std::string status)
+void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, int id, std::string status)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
 			for (std::vector<Order*>::iterator oit = m_orders.begin(); oit != m_orders.end(); ++oit) {
-				if ((*oit)->getClient() == (*it)) {
+				if ((*oit)->getClient() == (*it) && (*oit)->getID() == id ){
 					(*oit)->setStatus(status);
 				}
 			}
@@ -232,8 +232,16 @@ void Magasin::DisplayAllOrdersClient(std::string prenom, std::string nom)
 				std::cout << std::left << std::setw(42) << (*oit)->getStatus() << " ";
 				std::cout << "|" << std::endl;
 				DisplayFrame();
-
-				//A finir 
+				std::vector<Product*> pan = (*oit)->getBuyedProducts();
+				for (std::vector<Product*>::iterator pit = pan.begin(); pit != pan.end(); ++pit) {
+					std::cout << "|";
+					std::cout << std::left << std::setw(17) << (*pit)->getTitle() << " ";
+					std::cout << std::left << std::setw(26) << (*pit)->getDescription() << " ";
+					std::cout << std::left << std::setw(16) << (*pit)->getQuantity() << " ";
+					std::cout << std::setw(5) << (*pit)->getPrice();
+					std::cout << "|" << std::endl;
+				}
+				std::cout << "----------------------------------------------------------------------" << std::endl;
 			}
 		}
 	}
