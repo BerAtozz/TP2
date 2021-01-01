@@ -9,12 +9,15 @@
 class Magasin
 {
 public:
+	Magasin();
 	Magasin(std::string nom);
+	std::string getNomMagasin();
 	void AddToMagasin(std::string nom,std::string description, float prix, int quantity);
 	std::vector <Product*> getProductList();
 	void DisplayFrame();
 	void DisplayAllProducts();
 	void DisplayProduct(std::string name);
+	void ChangeQuantity(std::string name, int quantity);
 	void UpdateQuantity(std::string name, int quantity);
 	void AddClient(std::string prenom, std::string nom);
 	void DisplayClientFrame();

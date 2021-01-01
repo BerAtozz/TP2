@@ -1,9 +1,17 @@
 #include "Magasin.h"
 #include "Product.h"
 #include <iomanip>
+Magasin::Magasin()
+{
+}
 Magasin::Magasin(std::string nom)
 {
 	m_nom = nom;
+}
+
+std::string Magasin::getNomMagasin()
+{
+	return m_nom;
 }
 
 void Magasin::AddToMagasin(std::string nom, std::string description, float prix, int quantity)
@@ -57,12 +65,20 @@ void Magasin::DisplayProduct(std::string name)
 	}
 }
 
+void Magasin::ChangeQuantity(std::string name, int quantity)
+{
+	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
+		if ((*it)->getTitle() == name) {
+			(*it)->ChangeQuantity(quantity);
+		}
+	}
+}
+
 void Magasin::UpdateQuantity(std::string name, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
 		if ((*it)->getTitle() == name) {
-			(*it)->ChangeQuantity(((*it)->getQuantity()-quantity));
-			
+			(*it)->ChangeQuantity(((*it)->getQuantity()-quantity));			
 		}
 	}
 }

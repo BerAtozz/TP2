@@ -1,10 +1,11 @@
 #include <iostream>
 #include "Magasin.h"
+#include "Display.h"
 
 int main (int argc , char const *argv[])
 {
    
-    Magasin magasin1("m1");
+    /*Magasin magasin1("m1");
     magasin1.AddToMagasin("PS4", "Sony Play Station 4", 399.99, 10);
     magasin1.AddToMagasin("Switch", "Nintendo Switch", 299.99, 5);
     magasin1.AddToMagasin("RTX3080", "Carte graphique", 800.00, 15);
@@ -47,7 +48,9 @@ int main (int argc , char const *argv[])
 
     magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
     
-    magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");
-    
+    magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");*/
+
+    Display affichage("");
+    affichage.Main();
     return 0;
 }
