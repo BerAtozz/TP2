@@ -31,6 +31,7 @@ public:
 	void ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity);
 	void ChangeQuantityPanier(int id, std::string product, int quantity);
 	void ValidateOrder(std::string prenom, std::string nom);
+	void ValidateOrder(int id);
 	void UpdateOrderStatus(std::string firstname, std::string name, int id, std::string status);
 	void DisplayAllOrders();
 	void DisplayAllOrdersClient(std::string prenom, std::string nom);

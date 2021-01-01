@@ -44,13 +44,13 @@ int main (int argc , char const *argv[])
 
     //magasin1.AddProductPanier("Valentin", "Berthoz", "gamecube", 1);
     //magasin1.ValidateOrder("Valentin", "Berthoz");
-
+    //magasin1.DisplayAllOrders();
 
     //magasin1.ChangeQuantityPanier("Valentin", "Berthoz", "PS5", 3);
 
     //magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
     
-    //magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");*/
+    //magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");
 
     Display affichage("");
     affichage.Main();

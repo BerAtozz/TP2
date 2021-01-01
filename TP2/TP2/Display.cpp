@@ -83,6 +83,12 @@ void Display::MainMenu()
 		SupprimerProduitPanier();
 	case 10:
 		ChangerQuantiteProduitPanier();
+	case 11:
+		ValiderPanierClient();
+	case 12:
+		ChangerStatutCommande();
+	case 13:
+		AfficherToutesCommandesMagasin();
 	}
 }
 
@@ -479,4 +485,94 @@ void Display::ChangerQuantiteProduitPanier()
 	else {
 		MainMenu();
 	}
+}
+
+void Display::ValiderPanierClient()
+{
+	int n, id = 0; 
+	std::string prenom, nom;
+
+	system("cls");
+	std::cout << "Valider le panier d'un client en utilisant :" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "1 - Son nom et prenom" << std::endl;
+	std::cout << "2 - Son ID" << std::endl;
+	std::cout << "Autre - Sortir" << std::endl;
+	std::cin >> n;
+	if (n == 1) {
+		system("cls");
+		std::cout << "Saisissez le prenom du client : " << std::endl;
+		std::cin.ignore();
+		std::getline(std::cin, prenom);
+		std::cout << "Saisissez le nom du client : " << std::endl;
+		std::getline(std::cin, nom);
+
+		system("cls");
+		mShop.ValidateOrder(prenom, nom);
+
+		std::cout << "La commande a bien ete validee" << std::endl;
+
+		std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
+		std::cin.ignore();
+		std::cin.get();
+		MainMenu();
+	}
+	if (n == 2) {
+		system("cls");
+		std::cout << "Saisissez l'ID du client :" << std::endl;
+		std::cin >> id;
+
+		system("cls");
+		mShop.ValidateOrder(id);
+
+		std::cout << "La commande a bien ete validee" << std::endl;
+
+		std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
+		std::cin.ignore();
+		std::cin.get();
+		MainMenu();
+	}
+	else {
+		MainMenu();
+	}
+}
+
+void Display::ChangerStatutCommande()
+{
+	int id = 0;
+	std::string prenom, nom, statut;
+
+	system("cls");
+	std::cout << "Changer le statut d'une commande :" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Saisissez le prenom du client : " << std::endl;
+	std::cin.ignore();
+	std::getline(std::cin, prenom);
+	std::cout << "Saisissez le nom du client : " << std::endl;
+	std::getline(std::cin, nom);
+	std::cout << "Saisissez le statut de la commande : " << std::endl;
+	std::getline(std::cin, statut);
+	std::cout << "Saisissez l'ID de la commande : " << std::endl;
+	std::cin >> id;
+
+	system("cls");
+	mShop.UpdateOrderStatus(prenom, nom, id, statut);
+
+	std::cout << "Le statut a bien ete mis a jour" << std::endl;
+
+	std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
+	std::cin.ignore();
+	std::cin.get();
+	MainMenu();
+}
+
+void Display::AfficherToutesCommandesMagasin()
+{
+	system("cls");
+	mShop.DisplayAllOrders();
+
+	std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
+	std::cin.ignore();
+	std::cin.get();
+	MainMenu();
 }

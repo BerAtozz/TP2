@@ -20,6 +20,9 @@ public :
 	void AjouterProduitPanier();
 	void SupprimerProduitPanier();
 	void ChangerQuantiteProduitPanier();
+	void ValiderPanierClient();
+	void ChangerStatutCommande();
+	void AfficherToutesCommandesMagasin();
 private :
 	std::string nom;
 	Magasin mShop;
