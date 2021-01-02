@@ -10,6 +10,11 @@ public :
 	Display(std::string name);
 	void Main();
 	void MainMenu();
+
+	void GestionMagasin();
+	void GestionClients();
+	void GestionCommandes();
+
 	void AjouterProduitMagasin();
 	void AfficherProduitsMagasin();
 	void AfficherUnProduitMagasin();

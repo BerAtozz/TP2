@@ -16,7 +16,7 @@ void Display::Main()
 	std::string nom;
 
 	std::cout << "----------------------------------------------------------------------" << std::endl;
-	std::cout << "Shop Manager V 0.2" << std::endl;
+	std::cout << "Shop Manager V 0.3" << std::endl;
 	std::cout << "1 - Creer un magasin" << std::endl;
 	std::cout << "2 - Quitter" << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -41,28 +41,47 @@ void Display::MainMenu()
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 	std::cout << "Nom du magasin : " << mShop.getNomMagasin() << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
-	std::cout << "1 - Ajouter un produit au magasin" << std::endl;
-	std::cout << "2 - Afficher tous les produits du magasin" << std::endl;
-	std::cout << "3 - Afficher un produit du magasin" << std::endl;
-	std::cout << "4 - Changer la quantite en stock d'un produit" << std::endl;
-	std::cout << "5 - Ajouter un client au magasin" << std::endl;
-	std::cout << "6 - Afficher tous les clients du magasin" << std::endl;
-	std::cout << "7 - Afficher un client du magasin et son panier" << std::endl;
-	std::cout << "8 - Ajouter un produit au panier d'un client" << std::endl;
-	std::cout << "9 - Supprimer un produit du panier d'un client" << std::endl;
-	std::cout << "10 - Changer la quantite d'un produit dans le panier d'un client" << std::endl;
-	std::cout << "11 - Valider le panier d'un client" << std::endl;
-	std::cout << "12 - Changer le statut d'une commande" << std::endl;
-	std::cout << "13 - Afficher toutes les commandes du magasin" << std::endl;
-	std::cout << "14 - Afficher toutes les commandes d'un client" << std::endl;
-	std::cout << "15 - Quitter" << std::endl;
+	std::cout << "1 - Gestion magasin" << std::endl;
+	std::cout << "2 - Gestion clients" << std::endl;
+	std::cout << "3 - Gestion commandes" << std::endl;
+	std::cout << "4 - Quitter" << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 	std::cout << "Selectionnez une action dans le menu : ";
 	std::cin >> n;
 
 	switch (n) {
-	case 15:
+	case 4:
 		exit(0);
+	case 1:
+		GestionMagasin();
+	case 2:
+		GestionClients();
+	case 3:
+		GestionCommandes();	
+	}
+}
+
+void Display::GestionMagasin()
+{
+	int n = 0;
+
+	system("cls");
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Nom du magasin : " << mShop.getNomMagasin() << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "1 - Ajouter un produit au magasin" << std::endl;
+	std::cout << "2 - Afficher tous les produits du magasin" << std::endl;
+	std::cout << "3 - Afficher un produit du magasin" << std::endl;
+	std::cout << "4 - Changer la quantite en stock d'un produit" << std::endl;
+	std::cout << "5 - Retour" << std::endl;
+
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Selectionnez une action dans le menu : ";
+	std::cin >> n;
+
+	switch (n) {
+	case 5:
+		MainMenu();
 	case 1:
 		AjouterProduitMagasin();
 	case 2:
@@ -71,26 +90,73 @@ void Display::MainMenu()
 		AfficherUnProduitMagasin();
 	case 4:
 		ChangerQuantiteProduit();
-	case 5:
+	}
+}
+
+void Display::GestionClients()
+{
+	int n = 0;
+
+	system("cls");
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Nom du magasin : " << mShop.getNomMagasin() << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "1 - Ajouter un client au magasin" << std::endl;
+	std::cout << "2 - Afficher tous les clients du magasin" << std::endl;
+	std::cout << "3 - Afficher un client du magasin et son panier" << std::endl;
+	std::cout << "4 - Ajouter un produit au panier d'un client" << std::endl;
+	std::cout << "5 - Supprimer un produit du panier d'un client" << std::endl;
+	std::cout << "6 - Changer la quantite d'un produit dans le panier d'un client" << std::endl;
+	std::cout << "7 - Valider le panier d'un client" << std::endl;
+	std::cout << "8 - Retour" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Selectionnez une action dans le menu : ";
+	std::cin >> n;
+	switch (n) {
+	case 1:
 		AjouterClientMagasin();
-	case 6:
+	case 2:
 		AfficherTousLesClients();
-	case 7:
+	case 3:
 		AfficherUnClient();
-	case 8:
+	case 4:
 		AjouterProduitPanier();
-	case 9:
+	case 5:
 		SupprimerProduitPanier();
-	case 10:
+	case 6:
 		ChangerQuantiteProduitPanier();
-	case 11:
+	case 7:
 		ValiderPanierClient();
-	case 12:
+	case 8:
+		MainMenu();
+	}
+
+}
+
+void Display::GestionCommandes()
+{
+	int n = 0;
+
+	system("cls");
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Nom du magasin : " << mShop.getNomMagasin() << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "1 - Changer le statut d'une commande" << std::endl;
+	std::cout << "2 - Afficher toutes les commandes du magasin" << std::endl;
+	std::cout << "3 - Afficher toutes les commandes d'un client" << std::endl;
+	std::cout << "4 - Retour" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Selectionnez une action dans le menu : ";
+	std::cin >> n;
+	switch (n) {
+	case 1:
 		ChangerStatutCommande();
-	case 13:
+	case 2:
 		AfficherToutesCommandesMagasin();
-	case 14:
+	case 3:
 		AfficherToutesCommandesClient();
+	case 4:
+		MainMenu();
 	}
 }
 
