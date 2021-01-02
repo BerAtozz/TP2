@@ -23,6 +23,7 @@ public :
 	void ValiderPanierClient();
 	void ChangerStatutCommande();
 	void AfficherToutesCommandesMagasin();
+	void AfficherToutesCommandesClient();
 private :
 	std::string nom;
 	Magasin mShop;

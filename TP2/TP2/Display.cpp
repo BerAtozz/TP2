@@ -16,7 +16,7 @@ void Display::Main()
 	std::string nom;
 
 	std::cout << "----------------------------------------------------------------------" << std::endl;
-	std::cout << "Shop Manager V 0.1" << std::endl;
+	std::cout << "Shop Manager V 0.2" << std::endl;
 	std::cout << "1 - Creer un magasin" << std::endl;
 	std::cout << "2 - Quitter" << std::endl;
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -89,6 +89,8 @@ void Display::MainMenu()
 		ChangerStatutCommande();
 	case 13:
 		AfficherToutesCommandesMagasin();
+	case 14:
+		AfficherToutesCommandesClient();
 	}
 }
 
@@ -573,6 +575,27 @@ void Display::AfficherToutesCommandesMagasin()
 
 	std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
 	std::cin.ignore();
+	std::cin.get();
+	MainMenu();
+}
+
+void Display::AfficherToutesCommandesClient()
+{
+	std::string prenom, nom;
+
+	system("cls");
+	std::cout << "Afficher les commandes d'un client :" << std::endl;
+	std::cout << "----------------------------------------------------------------------" << std::endl;
+	std::cout << "Saisissez le prenom du client : " << std::endl;
+	std::cin.ignore();
+	std::getline(std::cin, prenom);
+	std::cout << "Saisissez le nom du client : " << std::endl;
+	std::getline(std::cin, nom);
+
+	system("cls");
+	mShop.DisplayAllOrdersClient(prenom, nom);
+
+	std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
 	std::cin.get();
 	MainMenu();
 }

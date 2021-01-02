@@ -325,30 +325,33 @@ void Magasin::DisplayAllOrdersClient(std::string prenom, std::string nom)
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
 			for (std::vector<Order*>::iterator oit = m_orders.begin(); oit != m_orders.end(); ++oit) {
-				std::cout << "----------------------------------------------------------------------" << std::endl;
-				std::cout << "| Numero de commande : ";
-				std::cout << std::left << std::setw(42) << (*oit)->getID() << " ";
-				std::cout << "|" << std::endl;
-				std::cout << "----------------------------------------------------------------------" << std::endl;
-				std::cout << "| Client : ";
-				std::cout << std::left << std::setw(2) << (*oit)->getClient()->getFirstName() << " ";
-				std::cout << std::left << std::setw(45) << (*oit)->getClient()->getName() << " ";
-				std::cout << "|" << std::endl;
-				std::cout << "----------------------------------------------------------------------" << std::endl;
-				std::cout << "| Statut de la commande : ";
-				std::cout << std::left << std::setw(42) << (*oit)->getStatus() << " ";
-				std::cout << "|" << std::endl;
-				DisplayFrame();
-				std::vector<Product*> pan = (*oit)->getBuyedProducts();
-				for (std::vector<Product*>::iterator pit = pan.begin(); pit != pan.end(); ++pit) {
-					std::cout << "|";
-					std::cout << std::left << std::setw(17) << (*pit)->getTitle() << " ";
-					std::cout << std::left << std::setw(26) << (*pit)->getDescription() << " ";
-					std::cout << std::left << std::setw(16) << (*pit)->getQuantity() << " ";
-					std::cout << std::setw(5) << (*pit)->getPrice();
+				if((*oit)->getClient()->getName()==nom && (*oit)->getClient()->getFirstName()==prenom){
+					std::cout << "----------------------------------------------------------------------" << std::endl;
+					std::cout << "| Numero de commande : ";
+					std::cout << std::left << std::setw(42) << (*oit)->getID() << " ";
 					std::cout << "|" << std::endl;
+					std::cout << "----------------------------------------------------------------------" << std::endl;
+					std::cout << "| Client : ";
+					std::cout << std::left << std::setw(2) << (*oit)->getClient()->getFirstName() << " ";
+					std::cout << std::left << std::setw(45) << (*oit)->getClient()->getName() << " ";
+					std::cout << "|" << std::endl;
+					std::cout << "----------------------------------------------------------------------" << std::endl;
+					std::cout << "| Statut de la commande : ";
+					std::cout << std::left << std::setw(42) << (*oit)->getStatus() << " ";
+					std::cout << "|" << std::endl;
+					DisplayFrame();
+					std::vector<Product*> pan = (*oit)->getBuyedProducts();
+					for (std::vector<Product*>::iterator pit = pan.begin(); pit != pan.end(); ++pit) {
+						std::cout << "|";
+						std::cout << std::left << std::setw(17) << (*pit)->getTitle() << " ";
+						std::cout << std::left << std::setw(26) << (*pit)->getDescription() << " ";
+						std::cout << std::left << std::setw(16) << (*pit)->getQuantity() << " ";
+						std::cout << std::setw(5) << (*pit)->getPrice();
+						std::cout << "|" << std::endl;
+					}
+					std::cout << "----------------------------------------------------------------------" << std::endl;
 				}
-				std::cout << "----------------------------------------------------------------------" << std::endl;
+				
 			}
 		}
 	}

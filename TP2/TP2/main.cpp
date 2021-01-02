@@ -35,8 +35,9 @@ int main (int argc , char const *argv[])
     //magasin1.DisplayClient("Bill","Gates");
 
     //magasin1.AddProductPanier("Valentin", "Berthoz", "PS5", 1);
-    //magasin1.AddProductPanier("Valentin", "Berthoz", "JBL", 5);
+    //magasin1.AddProductPanier("Hugo", "Senechal", "JBL", 5);
     //magasin1.ValidateOrder("Valentin", "Berthoz");
+    //magasin1.ValidateOrder("Hugo", "Senechal");
     //magasin1.DisplayClient(1);
     //magasin1.DeleteProductPanier(1, "PS5");
     //magasin1.DisplayClient(1);
@@ -50,7 +51,7 @@ int main (int argc , char const *argv[])
 
     //magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
     
-    //magasin1.DisplayAllOrdersClient("Valentin", "Berthoz");
+    //magasin1.DisplayAllOrdersClient("Hugo", "Senechal");
 
     Display affichage("");
     affichage.Main();
