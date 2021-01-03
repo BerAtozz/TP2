@@ -10,7 +10,7 @@ Display::Display(std::string name)
 	nom = name;
 }
 
-void Display::Main()
+void Display::Main() //Affiche le menu principal
 {
 	int n = 0;
 	std::string nom;
@@ -33,7 +33,7 @@ void Display::Main()
 	else{}
 }
 
-void Display::MainMenu()
+void Display::MainMenu()//Affiche le menu du magasin
 {
 	int n = 0;
 
@@ -61,7 +61,7 @@ void Display::MainMenu()
 	}
 }
 
-void Display::GestionMagasin()
+void Display::GestionMagasin()//Affiche le menu de gestion du magasin
 {
 	int n = 0;
 
@@ -93,7 +93,7 @@ void Display::GestionMagasin()
 	}
 }
 
-void Display::GestionClients()
+void Display::GestionClients()// Affiche le menu de gestion des clients
 {
 	int n = 0;
 
@@ -133,7 +133,7 @@ void Display::GestionClients()
 
 }
 
-void Display::GestionCommandes()
+void Display::GestionCommandes()//Affiche le menu de gestion des commandes
 {
 	int n = 0;
 
@@ -160,7 +160,7 @@ void Display::GestionCommandes()
 	}
 }
 
-void Display::AjouterProduitMagasin()
+void Display::AjouterProduitMagasin()//Affiche le menu d'ajout de produit au magasin
 {
 	int n = 0;
 	std::string nom;
@@ -206,7 +206,7 @@ void Display::AjouterProduitMagasin()
 	}
 }
 
-void Display::AfficherProduitsMagasin()
+void Display::AfficherProduitsMagasin()//Affiche tous les produits du magasin
 {
 	system("cls");
 	mShop.DisplayAllProducts();
@@ -216,7 +216,7 @@ void Display::AfficherProduitsMagasin()
 	MainMenu();
 }
 
-void Display::AfficherUnProduitMagasin()
+void Display::AfficherUnProduitMagasin()//Affiche un produit spécifié
 {
 	std::string str;
 
@@ -231,7 +231,7 @@ void Display::AfficherUnProduitMagasin()
 	MainMenu();
 }
 
-void Display::ChangerQuantiteProduit()
+void Display::ChangerQuantiteProduit()//Affiche le menu de changement de quantité d'un produit
 {
 	std::string str;
 	int quantite = 0;
@@ -251,7 +251,7 @@ void Display::ChangerQuantiteProduit()
 	MainMenu();
 }
 
-void Display::AjouterClientMagasin()
+void Display::AjouterClientMagasin()//Affiche le menu d'ajout d'un client au magasin
 {
 	std::string prenom, nom;
 	int n = 0;
@@ -285,7 +285,7 @@ void Display::AjouterClientMagasin()
 	
 }
 
-void Display::AfficherTousLesClients()
+void Display::AfficherTousLesClients()//Affiche tous les clients de magasin
 {
 	system("cls");
 	mShop.DisplayAllClients();
@@ -295,7 +295,7 @@ void Display::AfficherTousLesClients()
 	MainMenu();
 }
 
-void Display::AfficherUnClient()
+void Display::AfficherUnClient()//Affiche un client spécifié
 {
 	std::string nom, prenom;
 	int n,id = 0;
@@ -344,7 +344,7 @@ void Display::AfficherUnClient()
 	
 }
 
-void Display::AjouterProduitPanier()
+void Display::AjouterProduitPanier()//Affiche le menu d'ajout de produit au panier d'un client
 {
 	int n, m, quantite, id = 0;
 	std::string prenom, nom, titre;
@@ -424,7 +424,7 @@ void Display::AjouterProduitPanier()
 	}
 }
 
-void Display::SupprimerProduitPanier()
+void Display::SupprimerProduitPanier()//Affiche le menu de suppression d'un produit du panier d'un client
 {
 	int n, m, id = 0;
 	std::string nom, prenom, titre;
@@ -497,7 +497,7 @@ void Display::SupprimerProduitPanier()
 	}
 }
 
-void Display::ChangerQuantiteProduitPanier()
+void Display::ChangerQuantiteProduitPanier()//Affiche le menu de changement de quantité d'un produit dans le panier d'un client
 {
 	int n, quantite, id = 0;
 	std::string prenom, nom, titre;
@@ -555,7 +555,7 @@ void Display::ChangerQuantiteProduitPanier()
 	}
 }
 
-void Display::ValiderPanierClient()
+void Display::ValiderPanierClient()//Affiche le menu de validation du panier d'un client
 {
 	int n, id = 0; 
 	std::string prenom, nom;
@@ -605,7 +605,7 @@ void Display::ValiderPanierClient()
 	}
 }
 
-void Display::ChangerStatutCommande()
+void Display::ChangerStatutCommande()//Affiche le menu de changement de statu d'une commande
 {
 	int id = 0;
 	std::string prenom, nom, statut;
@@ -634,7 +634,7 @@ void Display::ChangerStatutCommande()
 	MainMenu();
 }
 
-void Display::AfficherToutesCommandesMagasin()
+void Display::AfficherToutesCommandesMagasin()//Affiche toutes les commandes du magasin
 {
 	system("cls");
 	mShop.DisplayAllOrders();
@@ -645,7 +645,7 @@ void Display::AfficherToutesCommandesMagasin()
 	MainMenu();
 }
 
-void Display::AfficherToutesCommandesClient()
+void Display::AfficherToutesCommandesClient()//Affiche toutes les commandes d'un client spécifié
 {
 	std::string prenom, nom;
 

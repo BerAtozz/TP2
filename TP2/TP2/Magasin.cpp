@@ -9,22 +9,26 @@ Magasin::Magasin(std::string nom)
 	m_nom = nom;
 }
 
+//Retourne le nom du magasin
 std::string Magasin::getNomMagasin()
 {
 	return m_nom;
 }
 
+//Créé un objet produit à partir des éléments passés en paramètre et ajoute son pointeur au vecteur de produits
 void Magasin::AddToMagasin(std::string nom, std::string description, float prix, int quantity)
 {
 	Product* p = new Product(nom, description, prix, quantity);
 	m_products.push_back(p);
 }
 
+//Retourne le vecteur de pointeurs de produits
 std::vector<Product*> Magasin::getProductList()
 {
 	return m_products;
 }
 
+//Affiche la frame des produits
 void Magasin::DisplayFrame()
 {
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -33,6 +37,7 @@ void Magasin::DisplayFrame()
 	std::cout << "| Name             Description            Quantity             Price |" << std::endl;
 }
 
+//Pacours le vecteur de pointeurs de produits et les affiches
 void Magasin::DisplayAllProducts()
 {
 	DisplayFrame();
@@ -48,6 +53,7 @@ void Magasin::DisplayAllProducts()
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
+//Parcours le vecteur de pointeurs de produits et affiche le produit dont le nom est passé en paramètres
 void Magasin::DisplayProduct(std::string name)
 {
 	DisplayFrame();
@@ -65,6 +71,7 @@ void Magasin::DisplayProduct(std::string name)
 	}
 }
 
+//Parcours le vecteur de pointeurs de produits et change la quantité (passée en paramètre) de celui dont le nom est passé en paramètre 
 void Magasin::ChangeQuantity(std::string name, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
@@ -74,6 +81,8 @@ void Magasin::ChangeQuantity(std::string name, int quantity)
 	}
 }
 
+//Parcours le vecteur de pointeurs de produits et soustrait a la quantité de produits restant la quantité de produit acheté 
+//(passé en paramètre) au produit dont le nom est passé en paramètres
 void Magasin::UpdateQuantity(std::string name, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it) {
@@ -83,6 +92,7 @@ void Magasin::UpdateQuantity(std::string name, int quantity)
 	}
 }
 
+//Créé un objet de type client à partir des paramètres et ajoute son pointeur au vecteur de pointeurs client
 void Magasin::AddClient(std::string prenom, std::string nom)
 {
 	Client* c = new Client(nom, prenom);
@@ -91,6 +101,7 @@ void Magasin::AddClient(std::string prenom, std::string nom)
 	
 }
 
+//Affiche la frame client
 void Magasin::DisplayClientFrame()
 {
 	std::cout << "----------------------------------------------------------------------" << std::endl;
@@ -99,7 +110,7 @@ void Magasin::DisplayClientFrame()
 	std::cout << "| Uid             Identity                                           |" << std::endl;
 }
 
-
+//Parcours le vecteur de pointeurs de clients et les affiches
 void Magasin::DisplayAllClients()
 {
 	std::string str;
@@ -113,6 +124,7 @@ void Magasin::DisplayAllClients()
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
+//Parcours le vecteur de pointeurs de clients et affiche celui dont l'id est passé en paramètre
 void Magasin::DisplayClient(int id)
 {
 	std::string str;
@@ -143,6 +155,7 @@ void Magasin::DisplayClient(int id)
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
+//Parcours le vecteur de pointeurs de clients et affiche celui dont le prénom et nom sont passés en paramètre
 void Magasin::DisplayClient(std::string prenom, std::string nom)
 {
 	std::string str;
@@ -174,6 +187,8 @@ void Magasin::DisplayClient(std::string prenom, std::string nom)
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 }
 
+//Parcours le vecteur de pointeurs de clients et ajoute à celui dont le nom et prénom sont passés en paramètre le produit dont le nom est 
+//passé en paramètre et sa quantité à son panier
 void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
@@ -183,6 +198,8 @@ void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string 
 	}
 }
 
+//Parcours le vecteur de pointeurs de clients et ajoute à celui dont l'id est passé en paramètre le produit dont le nom est passé
+//en paramètre et sa quantité à son panier
 void Magasin::AddProductPanier(int id, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
@@ -192,6 +209,9 @@ void Magasin::AddProductPanier(int id, std::string product, int quantity)
 	}
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui dont le nom est passé en paramètre
+//Parcours le vecteur de pointeurs de clients et récupère celui dont le nom et prénom sont passés en paramètre
+//Supprime du panier du client *it le produit *pit
 void Magasin::DeleteProductPanier(std::string nom, std::string prenom, std::string product)
 {
 	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
@@ -206,6 +226,9 @@ void Magasin::DeleteProductPanier(std::string nom, std::string prenom, std::stri
 	
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui dont le nom est passé en paramètre
+//Parcours le vecteur de pointeurs de clients et récupère celui dont l'id est passé en paramètre
+//Supprime du panier du client *it le produit *pit
 void Magasin::DeleteProductPanier(int id, std::string product)
 {
 	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
@@ -219,6 +242,9 @@ void Magasin::DeleteProductPanier(int id, std::string product)
 	}
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui dont le nom est passé en paramètre
+//Parcours le vecteur de pointeurs de clients et récupère celui dont le nom et prénom sont passés en paramètre
+//Change la quantité (passé en paramètre) du produit *pit présent dans le panier du client *it
 void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::string product, int quantity)
 {
 	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
@@ -232,6 +258,9 @@ void Magasin::ChangeQuantityPanier(std::string prenom, std::string nom, std::str
 	}
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui dont le nom est passé en paramètre
+//Parcours le vecteur de pointeurs de clients et récupère celui dont l'id est passé en paramètre
+//Change la quantité (passé en paramètre) du produit *pit présent dans le panier du client *it
 void Magasin::ChangeQuantityPanier(int id, std::string product, int quantity)
 {
 	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
@@ -245,6 +274,11 @@ void Magasin::ChangeQuantityPanier(int id, std::string product, int quantity)
 	}
 }
 
+//Parcours le vecteur de pointeurs de clients et récupère celui dont le nom et prénom sont passés en paramètre
+//Créé un objet de typer Order en prenant en paramètre le client *it récupéré et son panier
+//Stocke le panier du client dans le vecteur pan
+//Parcours le vecteur de pointeurs de produits "pan" et modifie la quantité des produits restants dans le magasin en fonction
+//des produits commandés
 void Magasin::ValidateOrder(std::string prenom, std::string nom)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
@@ -261,6 +295,11 @@ void Magasin::ValidateOrder(std::string prenom, std::string nom)
 	}
 }
 
+//Parcours le vecteur de pointeurs de clients et récupère celui dont l'id est passé en paramètre
+//Créé un objet de typer Order en prenant en paramètre le client *it récupéré et son panier
+//Stocke le panier du client dans le vecteur pan
+//Parcours le vecteur de pointeurs de produits "pan" et modifie la quantité des produits restants dans le magasin en fonction
+//des produits commandés
 void Magasin::ValidateOrder(int id)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
@@ -277,6 +316,9 @@ void Magasin::ValidateOrder(int id)
 	}
 }
 
+//Parcours le vecteur de pointeurs de clients et récupère celui dont le nom et prénom sont passés en paramètre
+//Parcours le vecteur de pointeurs de commandes et récupère celle dont l'id est passé en paramètre
+//Modifie le statut de la commande (*oit) en fonction du statut passé en paramètre
 void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, int id, std::string status)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
@@ -290,6 +332,9 @@ void Magasin::UpdateOrderStatus(std::string prenom, std::string nom, int id, std
 	}
 }
 
+//Parcours le vecteur de pointeurs de commandes et récupère chacune d'elles
+//Stocke la commande en cours (boucle for) dans le vecteur de pointeurs "pan"
+//Parcours le vecteur de pointeurs "pan" et affiche tous les produits qu'il contient
 void Magasin::DisplayAllOrders()
 {
 	for (std::vector<Order*>::iterator it = m_orders.begin(); it != m_orders.end(); ++it) {
@@ -320,6 +365,10 @@ void Magasin::DisplayAllOrders()
 	}
 }
 
+//Parcours le vecteur de pointeurs de clients et récupère celui dont le nom et prénom sont passés en paramètre
+//Parcours le vecteur de pointeurs de commandes dont le nom et prenom est passé en paramètre
+//Stocke la commande en cours (boucle for) dans le vecteur de pointeurs "pan"
+//Parcours le vecteur de pointeurs "pan" et affiche tous les produits qu'il contient
 void Magasin::DisplayAllOrdersClient(std::string prenom, std::string nom)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {

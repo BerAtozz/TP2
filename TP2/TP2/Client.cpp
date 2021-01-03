@@ -17,6 +17,9 @@ Client::Client(std::string name, std::string firstname)
   m_id;
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui dont le nom est passé en paramètre
+//Créé un pointeur de produit à partir de celui récupéré précédemment
+//Ajouter ce pointeur au vecteur panier
 void Client::AddProductPanier(std::vector<Product*> m_products, std::string nameProduct, int quantity)
 {
 	for (std::vector<Product*>::iterator it = m_products.begin(); it != m_products.end(); ++it)
