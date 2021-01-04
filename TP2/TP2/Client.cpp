@@ -37,6 +37,8 @@ void Client::ClearPanier()
   m_panier.clear(); //clear suprimme les elements du panier
 }
 
+//Parcours le vecteur de pointeurs de produits et récupère celui qui est passé en paramètre (vérification sur le nom)
+//Change la quantité du produit par celle passée en paramètre
 void Client::ChangeQuantityPanier(Product* product, int quantity)
 {
     for (std::vector<Product*>::iterator it = m_panier.begin(); it != m_panier.end(); ++it)
@@ -47,6 +49,7 @@ void Client::ChangeQuantityPanier(Product* product, int quantity)
     }  
 }
 
+//Parcours le vecteur de pointeurs de produits m_panier et supprime le pointeur passé en paramètre
 void Client::DeleteProductPanier(Product* product)
 {  
     for (int i = 0; i < m_panier.size(); i++) {
@@ -93,6 +96,6 @@ std::vector<Product*> Client::getVectorPanier()
 
 std::ostream& operator<<(std::ostream& os, const Client& ct)
 {
-    os << ct.m_name << ' ' << ct.m_firstname ;
+    os << ct.m_name << ' ' << ct.m_firstname;
     return os;
 }
