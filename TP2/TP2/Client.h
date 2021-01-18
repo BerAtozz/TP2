@@ -21,7 +21,7 @@ public:
 	std::string getPanier();
 	std::vector<Product*> getVectorPanier();
 	
-	friend std::ostream& operator<<(std::ostream& os, const Client& ct);
+	friend std::ostream& operator<<(std::ostream& os, Client& ct);
 
 private:
 	std::string m_name;

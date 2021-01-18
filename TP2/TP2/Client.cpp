@@ -94,7 +94,7 @@ std::vector<Product*> Client::getVectorPanier()
     return m_panier;
 }
 
-std::ostream& operator<<(std::ostream& os, const Client& ct)
+std::ostream& operator<<(std::ostream& os, Client& ct)
 {
     os << ct.m_name << ' ' << ct.m_firstname;
     return os;
