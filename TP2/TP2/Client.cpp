@@ -79,6 +79,8 @@ std::string Client::getFirstName()
     return m_firstname;
 }
 
+//Parcours le vecteur de pointeur de Porduits m_panier et retourne le nom des produits + la
+//quantité sous forme d'un std::string
 std::string Client::getPanier()
 {
     std::string str;
@@ -94,8 +96,12 @@ std::vector<Product*> Client::getVectorPanier()
     return m_panier;
 }
 
+//Affiche les informations relatives au client ainsi que son panier
 std::ostream& operator<<(std::ostream& os, Client& ct)
 {
-    os << ct.m_name << ' ' << ct.m_firstname;
+    std::string str;
+    str = "Nom : " + ct.m_name + " Prenom : " + ct.m_firstname + " Identifiant : " + std::to_string(ct.getID());
+    str += ct.getPanier();
+    os << str;
     return os;
 }

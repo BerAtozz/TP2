@@ -4,7 +4,10 @@
 
 int main (int argc , char const *argv[])
 {
-   
+    Display affichage("");
+    affichage.Main();
+    return 0;
+
     //Magasin magasin1("m1");
     //magasin1.AddToMagasin("PS4", "Sony Play Station 4", 399.99, 10);
     //magasin1.AddToMagasin("Switch", "Nintendo Switch", 299.99, 5);
@@ -21,8 +24,9 @@ int main (int argc , char const *argv[])
     
 
     //Client c1("Valentin", "Berthoz");
+    //c1.AddProductPanier(magasin1.getProductList(), "PS4", 1);
     //std::cout << c1;
-    //c1.AddProductPanier(magasin1.getProductList(),"PS5");
+    
 
     //magasin1.AddClient("Valentin", "Berthoz");
     //magasin1.AddClient("Hugo", "Senechal");
@@ -51,9 +55,5 @@ int main (int argc , char const *argv[])
 
     //magasin1.UpdateOrderStatus("Valentin", "Berthoz", 1, "En preparation");
     
-    //magasin1.DisplayAllOrdersClient("Hugo", "Senechal");
-
-    Display affichage("");
-    affichage.Main();
-    return 0;
+    //magasin1.DisplayAllOrdersClient("Hugo", "Senechal");  
 }
