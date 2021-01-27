@@ -35,6 +35,7 @@ public:
 	void UpdateOrderStatus(std::string firstname, std::string name, int id, std::string status);
 	void DisplayAllOrders();
 	void DisplayAllOrdersClient(std::string prenom, std::string nom);
+	int getQuantityProduct(std::string product);
 
 private:
 	std::string m_nom;

@@ -192,8 +192,14 @@ void Magasin::DisplayClient(std::string prenom, std::string nom)
 void Magasin::AddProductPanier(std::string prenom, std::string nom, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
-		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {
-			(*it)->AddProductPanier(m_products,product, quantity);
+		if ((*it)->getName() == nom && (*it)->getFirstName() == prenom) {	
+			if (getQuantityProduct(product) >= quantity) {
+				(*it)->AddProductPanier(m_products, product, quantity);
+				std::cout << "Le produit a bien ete ajoute au panier du client" << std::endl;
+			}
+			else {
+				std::cout << "Le produit n'a pas ete ajoute au panier du client" << std::endl;
+			}
 		}
 	}
 }
@@ -204,7 +210,13 @@ void Magasin::AddProductPanier(int id, std::string product, int quantity)
 {
 	for (std::vector<Client*>::iterator it = m_clients.begin(); it != m_clients.end(); ++it) {
 		if ((*it)->getID() == id) {
-			(*it)->AddProductPanier(m_products, product, quantity);
+			if (getQuantityProduct(product) >= quantity) {
+				(*it)->AddProductPanier(m_products, product, quantity);
+				std::cout << "Le produit a bien ete ajoute au panier du client" << std::endl;
+			}
+			else {
+				std::cout << "Le produit n'a pas ete ajoute au panier du client" << std::endl;
+			}
 		}
 	}
 }
@@ -402,6 +414,18 @@ void Magasin::DisplayAllOrdersClient(std::string prenom, std::string nom)
 				}
 				
 			}
+		}
+	}
+}
+
+int Magasin::getQuantityProduct(std::string product)
+{
+	for (std::vector<Product*>::iterator pit = m_products.begin(); pit != m_products.end(); ++pit) {
+		if ((*pit)->getTitle() == product) {
+			return (*pit)->getQuantity();
+		}
+		else {
+			return 0;
 		}
 	}
 }

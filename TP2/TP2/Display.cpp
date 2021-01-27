@@ -377,7 +377,7 @@ void Display::AjouterProduitPanier()//Affiche le menu d'ajout de produit au pani
 		if (m == 1) {
 			system("cls");
 			mShop.AddProductPanier(prenom, nom, titre, quantite);
-			std::cout << "Le produit a bien ete ajoute au panier du client" << std::endl;
+			
 
 			std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
 			std::cin.ignore();
