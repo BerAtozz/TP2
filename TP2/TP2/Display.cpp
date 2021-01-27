@@ -211,7 +211,7 @@ void Display::AfficherProduitsMagasin()//Affiche tous les produits du magasin
 	system("cls");
 	mShop.DisplayAllProducts();
 	std::cout << "Appuyez sur entree pour revenir au menu principal" << std::endl;
-	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	std::cin.ignore();
 	std::cin.get();
 	MainMenu();
 }
